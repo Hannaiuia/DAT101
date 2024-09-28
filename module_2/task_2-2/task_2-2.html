@@ -12,33 +12,60 @@
     <ol>
       <li>Where should you use constants, and where should you use variables? Can they all be constants?</li>
       <p>
-				[Replace this with you answer]
+        “const” is used to declare variables that should not change. 
+        It is therefore ideal for constants, fixed configurations or references to objects and arrays that won’t be reassigned. 
+        “let”, on the other hand, is used for variables that need to be updated or modified, as it allows for reassignment.
+        With that said, all variables can therefore not be constants.
+        If a value is supposed to change like in a loop, or a user input, one must use “let”, considering “const” will result in an error.
 			</p>
+
       <li>How do parentheses affect the arithmetic outcome of an expression?</li>
       <p>
-				[Replace this with you answer]
+	Parentheses affect the arithmetic outcome of an expression by determining the order in which calculations are carried out first.
+        By default, arithmetic operations follow a specific order to determine which operations are calculated first, this is also known as “PEMDAS” (Parentheses, exponents, multiplication and division, addition and subtraction).
+        Parentheses have the highest precedence, and so by using parentheses it allows you to control the order of operations, overriding the default rules.
+        In task 1 we experimented with this - without the parentheses it gave us another answer then with the parentheses. 
 			</p>
+
       <li>How do we limit floating-point numbers to a given number of decimals?</li>
       <p>
-				[Replace this with you answer]
+	There are many ways in JavaScript of limiting floating-point numbers to a given number of decimals. 
+        One way is to use “toFixed”, this is used to format a number as a string with a specified number of decimal places. 
+        Another example is “Math.round”, that one can use to get a number rounded to a specific number of decimal places. 
+        Depending on what result you need, whether it be a string or a number and the level of rounding, each method has its own use.
 			</p>
+
       <li>How can we compare two floating-point values to see if they are equal (is 12.199999 the same as 12.2)?</li>
       <p>
-				[Replace this with you answer]
+	Comparing two floating-point values to see if they are equal can be a bit tricky, especially when the number looks similar. 
+        Instead of therefore asking the computer: “are the numbers exactly the same”, we can ask “are these numbers close enough to be considered the same?”.
+        To do this we use a tolerance called “epsilon” for comparison. 
+        Epsilon is a small number that represents the acceptable difference between the two numbers (you decide on the value). 
 			</p>
+
       <li>What do comparison operators return, and how can we check if they are FALSE or TRUE?</li>
       <p>
-				[Replace this with you answer]
+	Comparison operators return a Boolean value, either true or false. 
+        This is used in programming to compare two values and check if the comparison is correct or not. 
+        There are two ways to check if a comparison operator is true or false. 
+        One can use it in a conditional statement, like an “if” statement, or by direct evaluation.
 			</p>
+
       <li>How does the Math.random() function work, and what can it be used for?</li>
       <p>
-				[Replace this with you answer]
+	The function Math.random() is a tool used to generate a “random” (pseudo) number.
+        In general, its used to create random values within a range, selecting random elements or simulating randomness in games and so on. 
 			</p>
+
       <li>What is modulus (%), and when do we need this operator in mathematical operations?</li>
       <p>
-				[Replace this with you answer]
+	The modulus operator gives the remainder of the division between two numbers.
+        It is used for different situations to, for instance check if a number is even or odd, and determining factors and multiples. 
+        The operator is therefore helpful when one needs to perform operations that involve remainders or periodic patterns. 
 			</p>
     </ol>
-		<script type="module" src="./task_2-2.mjs" defer></script>
+		<script type="module" src="./task_2-2.mjs" defer>
+      
+    </script>
   </body>
 </html>
