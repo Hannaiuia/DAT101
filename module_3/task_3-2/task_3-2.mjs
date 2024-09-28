@@ -4,7 +4,13 @@ initPrintOut(document.getElementById("txtOut"));
 
 printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+printOut ("hELLO WORLD");
+
+for( let x = 1; x <= 10; x++) {
+    printOut( x + " "); 
+}
+
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
