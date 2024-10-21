@@ -91,12 +91,12 @@ else if(monthName == "April" ||
         monthName == "September" ||
         monthName == "November")
         {
-        printOut("The month contains 31 days");
+        printOut("The month contains 30 days");
         }
 
 else(monthName == "February")
 {
-  printOut("The month contains 31 days");
+  printOut("The month contains 28 days");
 }
 
 printOut(newLine);
