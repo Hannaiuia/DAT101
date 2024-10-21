@@ -80,12 +80,11 @@ if(monthName == "January" ||
   monthName == "May" ||
   monthName == "July" ||
   monthName == "August" || 
-  monthName == "October " ||
-  monthName== "December") 
+  monthName == "October" ||
+  monthName == "December") 
   {
   printOut("The month contains 31 days");
   }
-
 else if(monthName == "April" ||
         monthName == "June" ||
         monthName == "September" ||
@@ -93,9 +92,7 @@ else if(monthName == "April" ||
         {
         printOut("The month contains 30 days");
         }
-
-else(monthName == "February")
-{
+else{
   printOut("The month contains 28 days");
 }
 
