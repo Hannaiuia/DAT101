@@ -11,12 +11,30 @@
     </div>
     <ol>
       <li>Discuss the behavior of part 1, What happens when the wake-up time is not 7 and what happens when it is exactly 7?</li>
-      <p>[Replace this with you answer]</p>
+
+      <p> When the wakeup-time is exactly 7, the condition in the program is met (true), and so it will print out “I can take the bus to school”.
+        However, if you set the wake-up time to be 6 or 8, the condition will be false, 
+        and because no “else” and “else if” statement is used, the program won’t print a message. </p>
+
       <li>Same as question #1. How ever the answer should now be different. Discuss the behaviour of part 2, What happens when the wake-up time is not 7 and what happens when it is exactly 7?</li>
-      <p>[Replace this with you answer]</p>
+      <p>If the “if” condition is met for exactly 7, it will print as in the last task. 
+        Now we also have an “else” statement, meaning that if the time is something other than 7, 
+        the “else” block will be triggered and print “I have to take the car to school”. 
+      </p>
+
       <li>Discuss the behavior of part 3, what happens when wake time is less than 7 or greater than 8?</li>
-      <p>[Replace this with you answer]</p>
+
+      <p>The condition is met for 7 and will print "I can take the bus to school.
+        The “else if” triggers if the wake-up time is exactly 8 and will print "I can take the train to school.
+        And if the condition is neither 7 or 8, it will trigger the “else” statement and give you "I have to take the car to school. 
+        Therefore, if the wake up time is 6, the program will tell you to take the car to school,
+        even though you have better time than if you woke up at 7 or 8. 
+        In theory one should therefore have made an if and else statements for earlier than 7 and later than 8 for it to make total sense.
+      </p>
+      
       <li>Discuss the behavior for part 4, what happens if the number is exactly 0, is zero positive or negative?</li>
+       <p>Zero is neither positive nor negative, meaning that most likely nothing will be printed when you get zero. 
+        Therefore, I made an “else” condition for zero, so that when the number becomes zero, one will get an answer.  </p>
     </ol>
     <script type="module" src="./task_3-1.mjs" defer></script>
   </body>

@@ -73,24 +73,48 @@ printOut(newLine);
 printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
-monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "November", "December"];
+printOut("The month is " + monthName);
 
-const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+if(monthName == "January" ||
+  monthName == "March" ||
+  monthName == "May" ||
+  monthName == "July" ||
+  monthName == "August" || 
+  monthName == "October " ||
+  monthName== "December") 
+  {
+  printOut("The month contains 31 days");
+  }
 
-noOfMonth = monthList.length;
-let randomNumber = Math.floor(Math.random() * noOfMonth)
-monthName = monthList[randomNumber]; 
+else if(monthName == "April" ||
+        monthName == "June" ||
+        monthName == "September" ||
+        monthName == "November")
+        {
+        printOut("The month contains 31 days");
+        }
 
-printOut("Selected month is " + monthName);
-
-const days = daysInMonth[randomNumber]; 
-
-printOut(monthName + " has " + days + " days "); 
+else(monthName == "February")
+{
+  printOut("The month contains 31 days");
+}
 
 printOut(newLine);
 
 /* Task 10*/
 printOut("--- Part 10 ---------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+printOut("Selected month is " + monthName);
+
+if (monthName == "March" || monthName == "May"){
+  printOut("Gallery is closed for refurbishment"); 
+} 
+  else if (monthName == "April") {
+  printOut("Gallery has temporary premises in the building next door"); 
+} 
+  else {
+  printOut("Gallery is open"); 
+}
+
 printOut(newLine);
