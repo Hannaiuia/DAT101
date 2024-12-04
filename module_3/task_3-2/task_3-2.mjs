@@ -5,6 +5,8 @@ initPrintOut(document.getElementById("txtOut"));
 printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
+//Two loop option 
+
 let text = "";
 for (let i = 1; i <= 10; i++){
     text += i.toString();
@@ -25,6 +27,22 @@ printOut(text2);
 
 printOut(newLine);
 
+// One loop option 
+
+let text3 = "";
+let text4 = "";
+
+for (let num = 1; num <= 10; num++) {
+    text3 += num.toString() 
+    text4 += (11- num).toString() 
+    if(num <10){
+    text3 += ",";
+    text4 += ",";
+    }  
+}
+printOut(text3);
+printOut(text4);
+
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 const secretNumber = 45; 
@@ -33,7 +51,7 @@ let maxNum = 60;
 let guess = 0; 
 
 while(guess !== secretNumber ) {
-    guess = Math.floor (Math.random() * maxNum) + 1 ; //Kan også bruke math.ceil(math random()* maxNum); 
+    guess = Math.floor (Math.random() * maxNum) + 1 ; 
 }
 printOut("I have guessed the right number! It is:" + guess ); 
 
@@ -65,17 +83,16 @@ printOut("It used " + timeTaken + " milliseconds");
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/ // se på denne 
-
+/* Put your code below here!*/ 
 let primeNumbers = "";
 
-for (let number =2; number < 200; number++) { 
+for (let number = 2; number < 200; number++) { 
     let isPrime = true; 
     
 
     let divisor = 2; 
     while( divisor <= Math.sqrt(number)){
-        if(number % divisor === 0) {
+        if(number % divisor == 0) {
             isPrime = false; 
             break; 
             } 
@@ -95,81 +112,251 @@ printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+
+for (let rowNum = 1; rowNum <= 7; rowNum++) { 
+    let row = "";  
+
+    for (let columnNum= 1; columnNum <= 9; columnNum++) {  
+       row += "K"+rowNum + "R" + columnNum + " ";  
+    }
+
+    printOut(row.trim());  
+}
+
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
-printOut(newLine);
+
+let A = 0;
+let B = 0;
+let C = 0;
+let D = 0;
+let E = 0;
+let F = 0;
+
+for(let student = 1; student < 6;  student++ ){
+    let randomScore = Math.ceil(Math.random()*236);
+    let percentage = (randomScore / 236) * 100;
+    let grade; 
+
+    if(percentage >= 89){
+        grade = "A";
+        A++;
+    }
+    else if(percentage >= 77){
+        grade = "B";
+        B++;
+    }
+    else if (percentage >= 65){
+        grade = "C";
+        C++;
+    }
+    else if (percentage >= 53){
+        grade = "D";
+        D++;
+    }
+    else if (percentage >= 41){
+        grade = "E";
+        E++;
+    }
+    else{
+        grade = "F";
+        F++;
+    }
+
+    printOut("Student " + student + " Score: " + randomScore + " (" + percentage.toFixed(2) + "%) The grade will therfore be : " + grade);
+
+}
+
+printOut("Grade order:"); 
+
+if (A > 0) {
+    printOut("A: " + A);
+}
+
+if (B > 0){
+    printOut("B: " + B);
+} 
+
+if (C > 0){
+    printOut("C: " + C);
+}
+
+if (D > 0){
+    printOut("D: " + D);
+}
+
+if (E > 0){
+    printOut("E: " + E);
+}
+
+if (F > 0){
+    printOut("F: " + F);
+} 
+
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
-printOut(newLine);
 
-printOut("The dice rolling extravaganza");
-const dice1 = math.ceil(math.random()*6);
-const dice2 = math.ceil(math.random()*6);
-const dice3 = math.ceil(math.random()*6);
-const dice4 = math.ceil(math.random()*6);
-const dice5 = math.ceil(math.random()*6);
-const dice6 = math.ceil(math.random()*6);
+//Full Straight  
+let dice1 = 0; 
+let dice2 = 0; 
+let dice3 = 0; 
+let dice4 = 0; 
+let dice5 = 0; 
+let dice6 = 0; 
 
-let diceThrow = ""; 
-diceThrow += d1.toString() + ",";
-diceThrow += d2.toString() + ",";
-diceThrow += d3.toString() + ",";
-diceThrow += d4.toString() + ",";
-diceThrow += d5.toString() + ",";
-diceThrow += d6.toString();
+let countThrows = 0;
+let fullStraight = false; 
 
-printOut("diceThrow" + diceThrow);
+while( fullStraight != true ) {
 
+    countThrows++; 
 
-const count1 = (diceThrow.match(/1/g)|| "").length;
-const count2 = (diceThrow.match(/2/g)|| "").length;
-const count3 = (diceThrow.match(/3/g)|| "").length;
-const count4 = (diceThrow.match(/4/g)|| "").length;
-const count5 = (diceThrow.match(/5/g)|| "").length;
-const count6 = (diceThrow.match(/6/g)|| "").length;
+    dice1 = Math.ceil(Math.random() * 6);
+    dice2 = Math.ceil(Math.random() * 6);
+    dice3 = Math.ceil(Math.random() * 6);
+    dice4 = Math.ceil(Math.random() * 6);
+    dice5 = Math.ceil(Math.random() * 6);
+    dice6 = Math.ceil(Math.random() * 6);
 
-const diceCount = "";
+    if ((dice1 === 1 || dice2 === 1 || dice3 === 1 || dice4 === 1 || dice5 === 1 || dice6 === 1) &&
+        (dice1 === 2 || dice2 === 2 || dice3 === 2 || dice4 === 2 || dice5 === 2 || dice6 === 2) &&
+        (dice1 === 3 || dice2 === 3 || dice3 === 3 || dice4 === 3 || dice5 === 3 || dice6 === 3) &&
+        (dice1 === 4 || dice2 === 4 || dice3 === 4 || dice4 === 4 || dice5 === 4 || dice6 === 4) &&
+        (dice1 === 5 || dice2 === 5 || dice3 === 5 || dice4 === 5 || dice5 === 5 || dice6 === 5) &&
+        (dice1 === 6 || dice2 === 6 || dice3 === 6 || dice4 === 6 || dice5 === 6 || dice6 === 6)) {
+        fullStraight = true;
+    }
 
-diceCount += d1.toString() + ","; //alt shft 
-diceCount += d2.toString() + ",";
-diceCount += d3.toString() + ",";
-diceCount += d4.toString() + ",";
-diceCount += d5.toString() + ",";
-diceCount += d6.toString();
-
-printOut("diceCount " + diceCount);
-
-const equals1 = (diceCount.match(/1/g) ||"").length; 
-printOut("equals1" + equals6.toString());
-
-const equals6  = (diceCount.match(/6/g) ||"").length; 
-printOut("equals6" + equals6.toString());
-
-if(equals1 ===6){
-    printOut("Full straight");
 }
-else if (equals6 ===1){
-    printOut("Yatzy!");
+printOut("It took " + countThrows + " throws to get a full straight!");
+
+//3 pairs 
+countThrows = 0;
+let pairs; 
+let countNumb = 0; 
+
+while (pairs != 3){
+    countThrows ++;
+    let pairs = 0; 
+
+    dice1 = Math.ceil(Math.random() * 6);
+    dice2 = Math.ceil(Math.random() * 6);
+    dice3 = Math.ceil(Math.random() * 6);
+    dice4 = Math.ceil(Math.random() * 6);
+    dice5 = Math.ceil(Math.random() * 6);
+    dice6 = Math.ceil(Math.random() * 6);
+
+    for(let numb = 1; numb < 7; numb++){
+        
+        countNumb = 0; 
+
+        if(dice1 == numb){
+        countNumb++; 
+        }
+        if(dice2 == numb){
+        countNumb++;
+        }
+        if(dice3 == numb){
+        countNumb++; 
+        }
+        if(dice4 == numb){
+        countNumb++; 
+        }
+        if(dice5 == numb){
+        countNumb++; 
+        }
+        if(dice6 == numb){
+        countNumb++; 
+        }
+
+        if(countNumb == 2){
+        pairs++;  
+        }
+        
+    }
+
+    if(pairs == 3){
+     break; 
+    }
 }
 
-printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
-printOut(newLine);
+printOut ("It took " + countThrows + " throws to get three pairs!"); 
 
-printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
-printOut(newLine);
+//2 of a kind and 4 of a kind (tower)
+countThrows = 0; 
+let tower = false; 
 
-/* Task 10*/
-printOut("--- Part 10 ---------------------------------------------------------------------------------------------");
-/* Put your code below here!*/
-printOut("Replace this with you answer!");
-printOut(newLine);
+while(tower != true){
+    countThrows++; 
+
+    dice1 = Math.ceil(Math.random() * 6);
+    dice2 = Math.ceil(Math.random() * 6);
+    dice3 = Math.ceil(Math.random() * 6);
+    dice4 = Math.ceil(Math.random() * 6);
+    dice5 = Math.ceil(Math.random() * 6);
+    dice6 = Math.ceil(Math.random() * 6);
+
+    let countNumb2 = 0; 
+    let countNumb4 = 0; 
+
+    for(let numb = 1; numb < 7; numb++){
+        countNumb = 0; 
+
+        if (dice1 == numb){
+        countNumb++;
+        }
+        if (dice2 == numb){
+        countNumb++;
+        }
+        if (dice3 == numb){
+        countNumb++;
+        }
+        if (dice4 == numb){
+        countNumb++;
+        }
+        if (dice5 == numb){
+        countNumb++;
+        }
+        if (dice6 == numb){
+        countNumb++;
+        }
+
+
+        if (countNumb == 2){
+        countNumb2++;
+        } 
+        if (countNumb == 4){
+        countNumb4++;
+        } 
+    }
+
+    if (countNumb2 == 1 && countNumb4 == 1) {
+        tower = true;
+    }
+}
+printOut("It took " + countThrows + " throws to get 2 of a kind and 4 of a kind (tower)!");
+
+//Yahtzee 
+
+
+countThrows = 0;
+let Yahtzee = false; 
+
+while( Yahtzee != true){
+    countThrows++; 
+
+    dice1 = Math.ceil(Math.random() * 6);
+    dice2 = Math.ceil(Math.random() * 6);
+    dice3 = Math.ceil(Math.random() * 6);
+    dice4 = Math.ceil(Math.random() * 6);
+    dice5 = Math.ceil(Math.random() * 6);
+    dice6 = Math.ceil(Math.random() * 6);
+
+    if( dice1 == dice2  && dice2 == dice3  && dice3 == dice4  && dice5 == dice6){
+        Yahtzee = true; 
+    }
+}
+printOut("It took " + countThrows + " throws to get Yahtzee!");

@@ -10,8 +10,37 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>1. In part 1, is it possible to solve the problem using a single "for" loop?</li>
+      <p>Yes, one can solve part 1, with one single for loop.
+
+        I have shown this under the two-loop option, as this is the one I originally made before trying to make one loop.
+        To do this you need a for loop and then two variables inside, one from 1- 10 and one from 10-1.</p>
+
+
+      <li>2. In part 2, can we create what is known as an "infinite" loop within the condition of the "while" loop?
+        Describe what would or would not be necessary to achieve this. Provide a thorough explanation of your answer.</li>
+
+      <p>In Part 2, one can create an "infinite" loop within the while loop condition.
+        An infinite loop is a loop that continues executing indefinitely unless it’s interrupted by an external force or a specific condition that breaks the loop.
+        To create an infinite loop, one could set the while condition to true.
+        By doing this the loop will run forever, unless it includes a break statement or another condition to exit the program.
+        Another way of creating an infinite loop could be to set the secretNumber to a value outside the possible range of guesses.
+        So, for example, if the program only generated numbers between 1- 100 and our secretNumber was set to 101, the loop would never find the correct number and would loop continuously. </p>
+
+
+      <li>3. Discuss briefly how quickly or slowly a computer might be able to compute this, considering the number of guesses and the time it takes. 
+        How does the program behave while it is guessing? Can the program perform other tasks concurrently?</li>
+
+      <p>Computers can compute the answer extremely fast, as they process random guesses and comparisons in milliseconds.
+        However, considering that the program relies on a random guessing approach, the number of attempts required to find the correct answer can vary affecting the total time taken.
+        During the guessing process, the program can’t do other tasks until the loop is finished.
+        Since JavaScript also is single-threaded, it can only execute one task at a time, causing any other task to wait until the guessing loop completes.</p>
+
+
+      <li>4. Explain the relationship between rows and columns in nested "for" loops.
+        Can we, for instance, change the order, considering rows to be innermost or columns to be innermost, or does this not matter?</li>
+      <p>While it would make more sense to have the outer loop iterate over the rows and the inner loop over the columns one could change the order of them.
+        If one was to reverse the order, one would still be able to generate the same output, however one would need to adjust how one constructs the string. </p>
     </ol>
     <script type="module" src="./task_3-2.mjs" defer></script>
   </body>
