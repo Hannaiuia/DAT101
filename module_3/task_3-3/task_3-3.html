@@ -10,8 +10,45 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li> 1. What is the difference between invoking and creating a function? </li>
+      <p> Creating a function is the process of writing the code and instructions for what the function will do, in short defining the function.
+         In contrast invoking a function, also more known as calling a function, is when the function is called upon, running the instructions so that the code within executes.  </p>
+
+      <li>2. Explain the syntax regarding semicolons and code blocks. </li>
+      <p>Semicolons (;) are used to terminate statements, signaling the end of a line of code.
+         In general JavaScript uses a feature called Automatic Semicolon Insertion (ASI), which automatically inserts semicolons where they are missing, allowing code to run.
+        However, it is good practice to remember to use semicolons and not rely on ASI, especially when writing code in strict mode. 
+        Code blocks are a group of statements enclosed with curly braces{}. They’re used to organize code and are commonly found in loops, function definitions and stand-alone scopes. Code blocks also make boundaries for variables like let and const, within the scope, making them confined here, and further ensuring structured logic in the program. 
+        </p>
+
+      <li>3. What happens when we try to store values from a function when it doesn't return any? </li>
+      <p> When trying to store values from a function that does not return anything, the function will automatically return undefined.
+        This happens because JavaScript will assume that it should return undefined by default.
+        As a result, all variables assigned to the functions result will hold the value undefines as long as nothing is returned. </p>
+
+      <li>4. How do we separate parameters from each other when creating a function? </li>
+      <p> Parameters within a function are in JavaScript separated by commas.
+          When therefore defining a function, the parameters are listed within parentheses and separated by commas.  </p>
+
+      <li>5. Explain how parameter names are related during the invocation and creation of a function. </li>
+      <p> During the creation of a function, the parameters are given specific names inside the paratheses, like labels, to show what kind of information the function will need.
+         When calling the function, you give it arguments (the values) that match those parameters.
+         For instance part 4, we have a function: calculateRectangle(width, height), where with and height are the parameters. 
+         When the function is called, one gives it arguments (the values) that match the parameters, like calculateRectangle(1,5). 1 is assigned to width and 5 is assigned to height. 
+         This way the parameter names are like placeholders and the arguments provided during the function call fill these placeholders (related by position). </p>
+
+      <li> 6. Explain why a parameter is undefined when a function call is missing a parameter. </li>
+      <p> This is because JavaScript does not throw an error if a function call is missing an argument.
+        Therefore, when a parameter is missing, it will just automatically leave the parameter as undefined. </p>
+
+      <li>7. Explain what happens when we use recursive functions. </li>
+      <p> A recursive function is a function that calls upon itself to solve a problem. 
+        A recursive function will call upon itself and continue until it hits base case/meets the condition set.
+        If there is no base case the function will continue to call itself indefinitely and can lead to a stack of overflow errors.
+        We find an example of a recursive function in task 10. The recursion stops at base case when n is 0 or 1, the function will then return 1.
+        The recursive case happens as long as n is greater than 1, and the function will then call itself with n-1 and multiply the result by n.
+        This process will repeat until the base case is reached. </p>
+
     </ol>
     <script type="module" src="./task_3-3.mjs" defer></script>
   </body>

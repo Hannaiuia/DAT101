@@ -97,8 +97,29 @@
   </div>
 </fieldset>
 <ol>
-  <li>[Write the question here, and copy this for more questions]</li>
-  <p>[Write your answer here, and copy this for more answers]</p>
+  <li>1. In this assignment, we use the DOM. Explain how this library can help us develop interactive web pages.</li>
+  <p>The DOM, also known as the Document Object Model, is a programming interface that allows one to manipulate the content, structure and style of a web page by allowing JavaScript to access and modify HTML and CSS elements.
+     This makes websites interactive by for instance responding to user inputs and handling user events like clicks and submissions. </p>
+
+  <li>2. What is an event? Simply explain what happens when we add an event listener to an object.</li>
+  <p>An event is an action that can be detected by the browser, for instance a click, keypress or mouse movement.
+    When one adds an event listener to an object, one tells the browser to watch out for a specific event on that object.
+    Once the chosen event happens, the listener triggers a function called a callback to run and perform the action. </p>
+
+  <li>3. Sometimes we need to use an event object to get data from the event. 
+    Explain how this event object is structured, don't explain all functions or attributes. 
+    Try to explain, for example, how to retrieve data from a keyboard or mouse.</li>
+
+  <p>The event object contains information about the events that occurs. 
+    For keyboard events one can for instance use properties like event.key. 
+    This we did in task 2, so that when the user clicks on “enter” it will register.
+     For mouse events one can use event.clientX and event.clientY to get the mouse’s position on the screen when the event happens. </p>
+
+  <li>4.Explain the main difference between DOM id and DOM name. Can we have identical IDs?</li>
+  <p>The DOM name is often used for grouping elements or identifying them for submissions, whilst DOM ID is used to uniquely identify an element within the document.
+    Therefore, ID must be unique within a document, meaning no elements can share the same ID. However multiple elements can share the same name. </p>
+  
+  
 </ol>
 <script type="module" src="./task_4-3.mjs" defer></script>
 </body>

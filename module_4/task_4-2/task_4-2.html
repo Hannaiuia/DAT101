@@ -10,8 +10,56 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>1. What is an array? A short and concise answer is expected here! </li>
+      <p> Arrays are a way to store lists of items of the same type in a specific order, where each item can be accessed using their position/index. </p>
+
+      <li> 2.What does it mean to "hardcode" when we talk about programming? </li>
+      <p>To hardcode means to write fixed values directly into the programs code instead of for instance using variables.
+         Should one later want to reuse or change the program can hardcoding make this difficult. </p>
+
+      <li>3. Explain in plain text what happens in task 3, and how we can traverse (iterate) the array when we (humans) don't "know" how long the array is. </li>
+      <p> In task 3 one has a constant greet that contains the string “Hello there, how are you?”.
+         The split() method is used to break the string apart into array words at every space “ “.
+        The for loop then traverses through each word in splitArray, with the loop condition set to i < splitArray.length. 
+        This method allows one to traverses through array of any length without needing to know their size beforehand. </p>
+
+      <li>4. Why is it beneficial to store instances of a class in arrays, as in task 4? </li>
+      <p>It is beneficial to store instances of a class in arrays because it allows for manage related objects and organize them efficiently, iterate through them and one can this way handle all the objects at the same time. </p>
+
+      <li>5. Try your best to explain the EWeekDays object from task 7.
+         How do we use the "value" attribute, for example? In what way do "WeekDay", "Workdays", and "Weekends" differ from each other?
+        If we wanted to create a new element "WorkoutDays", which would contain "Monday", "Wednesday", and "Thursday", how would it ideally look? 
+        (I will choose the best answer to this task and reward it with pizza in the cafeteria right after New Year. Remember to mark in your submission if you want to participate in the competition!) </li>
+
+      <p>The EWeekDays object represent days of the week, where each entry has two attributes that are value and name. 
+        The value attribute take hexadecimal numbers in use to assign a unique binary number for each day, whilst the name attribute gives the name of each day. 
+        By adding the individual days together (weekday), one can combine multiple days into groups like Workdays and Weekends.
+         Workdays for instance is a combination of Monday(0*01) to Friday(0*010). 
+         The sum of these hexadecimals/weekdays give us Workdays value and name “Arbeidsdager”. 
+         Weekends on the other hand is a combination of Weekday6(Saturday) and Weekday7(Sundays) values. 
+         To therefore create a new element called WorkoutDays, for Monday, Wednesday and Thursday we would combine their values 0*01(Monday) + 0*04(Wednesday) + 0*08(Thursday) and the name could then for instance be “Treningsdager”. 
+        
+         Jeg vil ha Pizzaaa - Hanna
+</p>
+        
+     <li> 6. In task 8, we will use a "callback" routine when sorting. Explain how such a "callback" routine works.
+      7. What happens in the sorting routines you have created? Try to explain how the array can figure out if an element should come before or after another.
+      The best way to answer this is to actually print both parameters each time the sorting routine runs.</li>
+
+      <p> Answer to both question 6 and 7: 
+        A callback routine is used in the .sort() method in task 8 to define how the array should be sorted. 
+        A callback function, in our case function(a, b), is a function passed as an argument to another function.
+         When sorting, function(a,b) determines the order of the element by comparing their values.
+         If the callback return a negative number, a comes before b, or it’s a positive number b comes before a, and when 0 the order remains unchanged. 
+         In our task one use both a – b to return ascending, and b – a to return descending. 
+         </p>
+
+      <li> 8. In task 10, we will create an array with rows and columns. Explain what the first element of the array contains.</li>
+      <p> The first element in the array is another smaller array that represents a row.
+         This smaller array contains the text for each column in the first row. 
+         Therefore in this case the first element will be “Row:1, Column:1”. </p>
+    
+    
     </ol>
     <script type="module" src="./task_4-2.mjs" defer></script>
   </body>
