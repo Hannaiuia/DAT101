@@ -151,7 +151,6 @@ printOut("Descending " + descending.toString());
 printOut(newLine);
 
 printOut("--- Part 9 ----------------------------------------------------------------------------------------------");
-/*se på senere */
 
 let frequencyArray = new Array(20).fill(0);
 for (let i = 0; i < randomNumbers.length; i++) {

@@ -110,7 +110,6 @@ checkAnswer.addEventListener("click", function(){
 }); 
 
 //--- Part 4 ----------------------------------------------------------------------------------------------
-/* SE PÅ SENERE*/
 
 const divCars = document.getElementById("divTask4Cars ");
 const output4 = document.getElementById("txtTask4Output");
@@ -166,7 +165,6 @@ const output6 = document.getElementById("txtTask6Output");
   });
 
 //--- Part 7 ----------------------------------------------------------------------------------------------
-/* SE PÅ SENERE */
 
 const movieTitle = document.getElementById("txtMovieTitle"); 
 const selectMovieGenre = document.getElementById("selectMovieGenre"); 
