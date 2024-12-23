@@ -10,8 +10,36 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>1. Why is object-oriented development so important in programming? </li>
+      <p>Object oriented development, also known as OOD, is a programming methodology and approach that centers around the concept of objects.
+        It is important in programming, because it simplifies the process of designing, developing and maintaining systems, especially those more complex.
+        It is therefore a good way to structure and organize code. Some languages OOD is especially important in is C++, Python, C# and Java.  </p>
+
+      <li>2. In Task 1, we create a static object called "AccountType." 
+        Explain what this object is used for and how this type of object can help us in software development.</li>
+      <p>The static object AccountType is used to manage the different account types in a single place, making it more structured and readable in the code.
+         This makes it easier to change and update AccountTypes in one place, thereby avoid hardcoding. </p>
+
+      <li> 3. Discuss why we use encapsulation in classes. Why do we want to "hide" code within our class?
+         Explain how we can create "private" and "public" members in a constructor function.</li>
+      <p>Encapsulation is a fundamental principle in programming, especially object-oriented programming. 
+        It refers to bundling of data (attributes) and methods (functions) into one single unit, known as a class.
+         One of its primary purposes is to hide code within a class and expose only necessary interactions.
+          By doing this one can prevent unintended modifications and side effects, and thus secure thee program more. 
+        In JavaScript, one can achieve encapsulation by using constructor functions. Public members are created by defining properties on the “this.property “, making it accessible from anywhere.
+          To make a private member we use the “#property” or without “this” in the constructor, so that it is only accessible within the class. 
+        To make a simpler analogy with a car: One does not need to know how an engine works to drive a car.
+         The engine is encapsulated, and you interact with it through the steering wheel and pedals. Similarly in programming, one can encapsulate data and methods, so user don’t need to know the internal details. 
+        </p>
+
+      <li>4. Explain what happens when we use the "new" command in JavaScript.</li>
+      <p>When using the “new” command in JavaScript it creates a new instance of a class or constructor function.
+        An example is : const myAccount = new TAccount (AccountType.Normal);
+        An easier way to explain how the new command works is to make an analogy with a toy factory, where you ask the toy factory to make a new toy for you. 
+        The factory (which in our case is TAccount class) creates a specific toy for you based om the design you chose (in our case AccountType.Normal). 
+        This new toy (object) has its own features and can do things on its own. In that way we can say that the “new” command helps create something new from a specific blueprint. 
+        </p>
+
     </ol>
     <script type="module" src="./task_4-1.mjs" defer></script>
   </body>
