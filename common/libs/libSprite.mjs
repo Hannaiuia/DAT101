@@ -49,7 +49,16 @@ class TSpriteCanvas {
         }else{
             this.#ctx.drawImage(this.#img, sx,sy,sw,sh,dx,dy,dw,dh); 
         }  
+    } //end of drawsprite
+
+    drawText(aText, aPos){
+        this.#ctx.font = "25px Arial"; 
+        this.#ctx.fillStyle = "hsl(0, 91%, 42%)"; 
+        this.#ctx.textAlign = "right"; 
+        this.#ctx.fillText(aText,aPos.x, aPos.y); 
     }
+
+
 
     clearCanvas(){
         this.#ctx.clearRect(0,0, this.#cvs.width, this.#cvs.height);
@@ -132,6 +141,14 @@ class TSprite {
         this.boundingBox.y = aY; 
     }
 
+    get left(){
+        return this.#pos.x; 
+    }
+
+    get right(){
+        return this.#pos.x + this.#spriteInfo.width; 
+    }
+
     setPos(aX,aY){
         this.#pos.x = aX; 
         this.#pos.y = aY; 
@@ -145,6 +162,9 @@ class TSprite {
 
     set index(aIndex){
         this.#index = aIndex; 
+    }
+    get index(){
+        return this.#index; 
     }
 
     hasCollided(aSpriteInfo){

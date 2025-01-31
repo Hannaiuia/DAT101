@@ -46,6 +46,9 @@ export const GameProps = {
   obstacles: [], 
   baits: [], 
   menu: null, 
+  score: 0, 
+  bestScore: 0, 
+  sounds: {countDown:null, food:null, gameOver:null, dead: null, running: null}, 
 };
 
 //--------------- Functions ----------------------------------------------//
@@ -70,10 +73,7 @@ function loadGame(){
   pos.x = 100; 
   pos.y = 100; 
   GameProps.hero = new THero(spcvs, SpriteInfoList.hero1,pos); 
- 
 
-  spawnObstacle(); 
-  spawnBait(); 
  
   GameProps.hero.animateSpeed = 10; 
 
@@ -82,6 +82,9 @@ function loadGame(){
   setInterval(animateGame, 10); 
 
   GameProps.menu = new TMenu(spcvs); 
+
+  //Load sounds 
+  GameProps.sounds.running = new libSound.TSoundFile("./Media/running.mp3"); 
 
 }
 
@@ -132,6 +135,11 @@ function animateGame(){
       for(let i = 0; i < GameProps.obstacles.length; i++){
         const obstacle = GameProps.obstacles[i]; 
         obstacle.update();
+        if(obstacle.right < GameProps.hero.left && !obstacle.hasPassed){
+          //congratulation u have passed obticle
+          GameProps.menu.incScore(20); 
+          obstacle.hasPassed = true; 
+        }
         if(obstacle.posY < -100){
           delObstacleIndex = i;  
         }
@@ -153,6 +161,7 @@ function animateGame(){
        }
        if(delBaitIndex >= 0){
         GameProps.baits.splice(delBaitIndex, 1); 
+        GameProps.menu.incScore(10); 
        }
       break; 
 
@@ -182,6 +191,22 @@ function spawnBait(){
   }
 }
 
+export function startGame(){
+  GameProps.status = EGameStatus.playing; 
+  //helten er død, vi må lage en ny helt 
+  GameProps.hero = new THero(spcvs, SpriteInfoList.hero1, new lib2D.TPosition(100,100)); 
+
+  //vi må slette alle hindringer og baits
+
+  GameProps.obstacles = []; 
+  GameProps.baits = []; 
+  GameProps.menu.reset(); 
+  GameProps.score = 0; 
+  spawnObstacle();
+  spawnBait(); 
+  //Spill av lyd
+  GameProps.sounds.running.play(); 
+}
 //--------------- Event Handlers -----------------------------------------//
 
 function setSoundOnOff() {
