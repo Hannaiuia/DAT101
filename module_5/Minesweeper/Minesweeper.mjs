@@ -2,6 +2,7 @@
 import lib2d from "../../common/libs/lib2d_v2.mjs";
 import libSprite from "../../common/libs/libSprite_v2.mjs";
 import { TGameBoard } from "./GameBoard.mjs";
+import { TTile, forEachTile} from "./Tile.mjs";
 
 //-----------------------------------------------------------------------------------------
 //----------- variables and object --------------------------------------------------------
@@ -38,6 +39,8 @@ const selectDifficulty = document.getElementById("selectDifficulty");
 
 export const gameProps = {
   gameBoard: null,
+  tiles: [], 
+
 }
 //-----------------------------------------------------------------------------------------
 //----------- functions -------------------------------------------------------------------
@@ -53,13 +56,41 @@ export function newGame() {
   cvs.height = gameLevel.Tiles.Row * SpriteInfoList.ButtonTile.height + SpriteInfoList.Board.TopMiddle.height + SpriteInfoList.Board.BottomMiddle.height;
   spcvs.updateBoundsRect();
   gameProps.gameBoard = new TGameBoard(spcvs, SpriteInfoList.Board, new lib2d.TPoint(0, 0));
+  //Lag ny forekomst av TTile
+  
+  for(let row = 0; row < gameLevel.Tiles.Row; row++){
+    const rows= []; //dette er kolonne men i raden av "row"
+    for(let col = 0; col <gameLevel.Tiles.Col; col++){
+      rows.push(new TTile(spcvs, SpriteInfoList.ButtonTile, row, col));
+    }
+    gameProps.tiles.push(rows); 
+  }
+  //Lag alle minnene i spillet basert på gameLevel.Mines
+  let mineCounter = 0; 
+  do{ 
+  const row = Math.floor(Math.random()* gameLevel.Tiles.Row); 
+  const col = Math.floor(Math.random()* gameLevel.Tiles.Col)
+  const tile = gameProps.tiles[row][col]; 
+  
+  if(!tile.isMine){
+    tile.isMine = true; 
+    mineCounter++; 
+  }
+  }while(mineCounter < gameLevel.Mines); 
+  console.log(mineCounter); 
 }
+
 
 
 function drawGame() {
   spcvs.clearCanvas();
   gameProps.gameBoard.draw();
+  forEachTile(drawTile); 
   requestAnimationFrame(drawGame);
+}
+
+function drawTile(aTile){
+  aTile.draw(); 
 }
 
 //-----------------------------------------------------------------------------------------
