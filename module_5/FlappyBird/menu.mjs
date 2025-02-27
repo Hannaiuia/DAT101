@@ -1,7 +1,7 @@
 "use strict"; 
 import lib2D from "../../common/libs/lib2D.mjs";
 import libSprite from "../../common/libs/libSprite.mjs";
-import { SpriteInfoList, GameProps, EGameStatus,startGame } from "./FlappyBird.mjs";
+import { SpriteInfoList, GameProps, EGameStatus,startGame,playSound} from "./FlappyBird.mjs";
 
 
 export class TMenu{
@@ -71,6 +71,7 @@ export class TMenu{
 
                 break; 
             case EGameStatus.getReady:
+                playSound(GameProps.sounds.countDown); 
                 this.#spInfoText.index = 0; 
                 this.#spInfoText.draw();
                 this.#spNumber.draw(); 
@@ -78,6 +79,7 @@ export class TMenu{
             case EGameStatus.gameOver:
             //her skal dere nå tegne game over spritene. Dere må lage forskjellige objektene som private medlemmer i en klasse.
             //hint bruk eks this#spGameOver; 
+                playSound(GameProps.sounds.dead); 
                 this.#spGameOver.draw(); 
                 this.#spButtonPlay.draw(); 
                 this.#spMedal.draw(); 
@@ -119,7 +121,7 @@ export class TMenu{
 
     reset(){
         GameProps.score = 0; 
-        this.#spNumber.index = 3; 
+        this.#spNumber.index = 3;
         
     }
     //ikke eksamensrelevant 

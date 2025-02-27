@@ -10,7 +10,7 @@ import {TMenu} from "./menu.mjs";
 
 //--------------- Objects and Variables ----------------------------------//
 const chkMuteSound = document.getElementById("chkMuteSound");
-const rbDayNight = document.getElementsByName("rbDayNight");
+export const rbDayNight = document.getElementsByName("rbDayNight");
 const cvs = document.getElementById("cvs"); 
 const spcvs = new libSprite.TSpriteCanvas(cvs); 
 
@@ -37,7 +37,7 @@ export const EGameStatus = {idle: 0, getReady: 1, playing: 2, gameOver:3};
 
 export const GameProps = {
   soundMuted: false,
-  dayTime: true,
+  dayTime: rbDayNight[0].checked, 
   speed: 1, 
   status: EGameStatus.idle, //For testing, normally EGameStatus.idle
   background: null, 
@@ -48,12 +48,12 @@ export const GameProps = {
   menu: null, 
   score: 0, 
   bestScore: 0, 
-  sounds: {countDown:null, food:null, gameOver:null, dead: null, running: null}, 
+  sounds: {countDown:null, food:null, flap:null, gameOver:null, dead: null, running: null}, 
 };
 
 //--------------- Functions ----------------------------------------------//
 
-function playSound(aSound) {
+export function playSound(aSound) {
   if (!GameProps.soundMuted) {
     aSound.play();
   } else {
@@ -84,13 +84,24 @@ function loadGame(){
   GameProps.menu = new TMenu(spcvs); 
 
   //Load sounds 
-  GameProps.sounds.running = new libSound.TSoundFile("./Media/running.mp3"); 
-
+  GameProps.sounds.countDown = new libSound.TSoundFile("./Media/countDown.mp3"); //Ferdig
+  GameProps.sounds.running = new libSound.TSoundFile("./Media/running.mp3"); //Ferdig
+  GameProps.sounds.food = new libSound.TSoundFile("./Media/food.mp3"); //Ferdig
+  GameProps.sounds.flap = new libSound.TSoundFile("./Media/flap.mp3"); 
+  GameProps.sounds.gameOver = new libSound.TSoundFile("./Media/gameOver.mp3"); //Ferdig
+  GameProps.sounds.dead = new libSound.TSoundFile("./Media/heroIsDead.mp3"); //Ferdig
+  
 }
 
 function drawGame(){
   //rense canvas 
   spcvs.clearCanvas(); 
+  if(GameProps.dayTime === false){
+    GameProps.background.index = 1; 
+  } else{
+    GameProps.background.index = 0; 
+  }
+
   //tegne bakgrunn
   GameProps.background.draw();
   drawBait();
@@ -122,6 +133,8 @@ function animateGame(){
       if(GameProps.hero.isDead){
         GameProps.hero.animateSpeed = 0; 
         GameProps.hero.update(); 
+       playSound(GameProps.sounds.gameOver); 
+        
         return; 
       }
       GameProps.ground.translate(-GameProps.speed,0); 
@@ -153,7 +166,7 @@ function animateGame(){
       for(let i = 0; i<GameProps.baits.length; i++){
         const bait = GameProps.baits[i]; 
         bait.update(); 
-        const posBait =bait.getCenter();
+        const posBait = bait.getCenter();
         const dist = posHero.distanceToPoint(posBait);
         if(dist <15){
           delBaitIndex = i; 
@@ -161,6 +174,9 @@ function animateGame(){
        }
        if(delBaitIndex >= 0){
         GameProps.baits.splice(delBaitIndex, 1); 
+        playSound(GameProps.sounds.food);  //Lyden av flappybird som spiser sommerfuglene
+        GameProps.sounds.food.stop();
+        playSound(GameProps.sounds.food); 
         GameProps.menu.incScore(10); 
        }
       break; 
@@ -205,13 +221,16 @@ export function startGame(){
   spawnObstacle();
   spawnBait(); 
   //Spill av lyd
-  GameProps.sounds.running.play(); 
+  playSound(GameProps.sounds.countDown);
+  playSound(GameProps.sounds.running); 
+  
 }
 //--------------- Event Handlers -----------------------------------------//
 
 function setSoundOnOff() {
   if (chkMuteSound.checked) {
     GameProps.soundMuted = true;
+
     console.log("Sound muted");
   } else {
     GameProps.soundMuted = false;
@@ -221,7 +240,7 @@ function setSoundOnOff() {
 
 function setDayNight() {
   if (rbDayNight[0].checked) {
-    GameProps.dayTime = true;
+    GameProps.dayTime = true; 
     console.log("Day time");
   } else {
     GameProps.dayTime = false;
@@ -233,7 +252,9 @@ function onKeyDown(aEvent){
   switch(aEvent.code){
     case "Space":
       if(!GameProps.hero.isDead){
+        GameProps.sounds.flap.stop();
         GameProps.hero.flap(); 
+        playSound(GameProps.sounds.flap); 
       }
       break;  
   }
